@@ -95,6 +95,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
+    oj (3.10.0)
     puma (4.3.1)
       nio4r (~> 2.0)
     rabl (0.14.2)
@@ -162,6 +163,7 @@ DEPENDENCIES
   byebug
   listen (>= 3.0.5, < 3.2)
   mongoid (~> 7.0, >= 7.0.5)
+  oj
   puma (~> 4.1)
   rabl (~> 0.14.2)
   rails (~> 6.0.2, >= 6.0.2.1)
