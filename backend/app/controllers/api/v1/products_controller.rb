@@ -3,22 +3,18 @@ class Api::V1::ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all
-
-    render json: @products
+    @products = Product.includes(:product_type).order("#{ProductType.collection_name}.name ASC").order(name: :asc)
   end
 
   # GET /products/1
-  def show
-    render json: @product
-  end
+  def show; end
 
   # POST /products
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      render json: @product, status: :created, location: @product
+      render :show, status: :created
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -27,7 +23,7 @@ class Api::V1::ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
-      render json: @product
+      render :show
     else
       render json: @product.errors, status: :unprocessable_entity
     end
