@@ -14,6 +14,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: A9XO#cy!!7cG
+    ports:
+      - "27017:27017"
   api:
     build: ./backend
     container_name: ship_sticks_dev_challenge-api
