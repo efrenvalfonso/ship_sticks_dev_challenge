@@ -19,6 +19,8 @@ gem 'puma', '~> 4.1'
 # Ruby templating system for generating JSON
 gem 'rabl', '~> 0.14.2'
 gem 'oj'
+# Friendly id
+gem 'friendly_id', '~> 5.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
