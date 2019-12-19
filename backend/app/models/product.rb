@@ -1,5 +1,6 @@
 class Product
   include Mongoid::Document
+  include Mongoid::Slug
 
   validates_presence_of :product_type, :name, :length, :width, :height, :weight
   validates_uniqueness_of :name, scope: :product_type
@@ -11,6 +12,7 @@ class Product
   belongs_to :product_type
 
   field :name, type: String
+  slug :name, scope: :product_type
   field :length, type: Integer, default: 0
   field :width, type: Integer, default: 0
   field :height, type: Integer, default: 0
