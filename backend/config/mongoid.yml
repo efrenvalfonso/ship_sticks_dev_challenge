@@ -28,10 +28,10 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        user: 'root'
+        user: 'admin'
 
         # The password of the user for authentication.
-        password: 'A9XO#cy!!7cG'
+        password: '*Hn%v4ok9qAO'
 
         # The user's database roles.
         roles:
@@ -60,7 +60,7 @@ development:
         # local_threshold: 0.015
 
         # The timeout in seconds for selecting a server for an operation. (default: 30)
-        # server_selection_timeout: 30
+        server_selection_timeout: 1 # Just for development use default in production
 
         # The maximum number of connections in the connection pool. (default: 5)
         # max_pool_size: 5
