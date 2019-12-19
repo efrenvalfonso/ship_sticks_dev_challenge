@@ -3,7 +3,6 @@ class Product
 
   belongs_to :product_type
 
-  field :product_type_id, type: Integer
   field :name, type: String
   field :length, type: Integer, default: 0
   field :width, type: Integer, default: 0
