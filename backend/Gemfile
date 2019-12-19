@@ -21,6 +21,8 @@ gem 'rabl', '~> 0.14.2'
 gem 'oj'
 # Slugs for mongoid models
 gem 'mongoid-slug'
+# Documentation
+gem 'apipie-rails', '~> 0.5.16'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
