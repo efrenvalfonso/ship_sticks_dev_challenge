@@ -36,23 +36,12 @@ services:
     container_name: ship_sticks_dev_challenge-web
     networks:
       - ship_sticks_dev_challenge
+    ports:
+      - "8080:80"
     volumes:
       - ./frontend/:/usr/local/apache2/htdocs/
     depends_on:
       - api
-  mongo-express:
-    image: mongo-express
-    container_name: ship_sticks_dev_challenge-mongo-express
-    networks:
-      - ship_sticks_dev_challenge
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_SERVER: db
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: A9XO#cy!!7cG
-    depends_on:
-      - db
 
 volumes:
   db-data:

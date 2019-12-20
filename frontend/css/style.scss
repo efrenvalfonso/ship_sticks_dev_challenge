@@ -1,0 +1,100 @@
+@font-face {
+  font-family: proxima-nova;
+  src: url("../fonts/ProximaNova-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: proxima-nova;
+  font-weight: bold;
+  src: url("../fonts/Proxima Nova Bold.otf") format("opentype");
+}
+
+body {
+  font-family: 'proxima-nova', sans-serif;
+}
+
+header {
+  background-image: url("../images/background.png");
+  color: #ffffff;
+}
+
+footer {
+  background-color: #252525;
+  padding: 18px;
+  color: #b0b0b0;
+}
+
+h1, h2, h3 {
+  line-height: 1.1;
+  margin-top: 22px;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.about {
+  padding: 30px;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.btn.btn-primary {
+  background-color: #5fd063 !important;
+  border-color: #5fd063 !important;
+  border-radius: 4px;
+  text-transform: none !important;
+  box-shadow: 0 3px 0 0 #4fab55;
+}
+
+.clear {
+  clear: both;
+}
+
+.copyright {
+  float: right;
+  margin-bottom: 0;
+}
+
+.footer-brand {
+  img {
+    max-height: 23px;
+  }
+}
+
+.header-footer {
+  padding: 30px 0;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid rgba(151,151,151,0.31);
+  text-align: center;
+  color: #ffffff;
+
+  .link-to-calculator {
+    position: absolute;
+    background-color: #252525;
+    border-radius: 4px;
+    width: 100%;
+    top: -100px;
+    padding: 30px;
+
+    .btn {
+      font-size: 25px;
+    }
+  }
+}
+
+.main-title {
+  text-align: center;
+  height: 200px;
+}
+
+.navbar-brand {
+  img {
+    max-height: 45px;
+  }
+}
