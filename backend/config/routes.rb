@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resource :products, only: [] do
+        get 'find-best-fit'
+      end
       resources :products
     end
   end
