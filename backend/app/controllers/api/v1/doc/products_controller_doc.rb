@@ -28,7 +28,7 @@ module Api
           param :weight, :number, desc: 'Weight of the product in <i>pounds</i>', required: true, action_aware: true
         end
 
-        api :GET, '/products', 'Get all productsasasas'
+        api :GET, '/products', 'Get all products'
         returns array_of: :product_details, code: :ok, desc: 'All products'
 
         def index;
@@ -44,7 +44,7 @@ module Api
         def show;
         end
 
-        api :GET, '/products/find_best_fit', 'Get the product that best fits for given dimensions and weight'
+        api :GET, '/products/find-best-fit', 'Get the product that best fits for given dimensions and weight'
         param :length, String, desc: 'Length in <i>inches</i>', required: true
         param :width, String, desc: 'Width in <i>inches</i>', required: true
         param :height, String, desc: 'Height in <i>inches</i>', required: true
