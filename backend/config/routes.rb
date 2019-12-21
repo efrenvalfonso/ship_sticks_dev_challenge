@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   apipie
 
+  get '', to: redirect('/api/v1')
+
   namespace :api do
+    get '', to: redirect('/api/v1')
+
     namespace :v1 do
+      get '', to: 'version#index'
+
       resource :products, only: [] do
         get 'find-best-fit'
       end

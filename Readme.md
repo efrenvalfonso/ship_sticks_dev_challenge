@@ -13,7 +13,7 @@ Once those two features are installed you need to run these commands in the root
 2. `docker-compose run api rails db:seed` to populate database with data from provided file `products.json`.
 3. `docker-compose up` to start the project.
 
-The application will be running in http://localhost:8080. If you need a different port you can change it in the file `docker-compose.yml` located in the root folder, in the line `38`.
+The application will be running in http://localhost:8080 and the API in http://localhost:3000 (check documentation for more details). If you need a different port you can change it in the file `docker-compose.yml` located in the root folder, in the line `38`.
 
 ### API Documentation
 

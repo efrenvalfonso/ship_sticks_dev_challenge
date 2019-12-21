@@ -27,6 +27,7 @@ $(document).ready(() => {
             input.removeClass("is-invalid");
         }
 
+        $("#calculatorNotFoundError").slideUp();
         checkErrors();
     });
 
@@ -55,7 +56,7 @@ $(document).ready(() => {
                     height: $("#calculatorHeightInput").val(),
                     weight: $("#calculatorWeightInput").val()
                 },
-                function (data) {
+                (data) => {
                     let calculateBtn = $("#calculateBtn");
                     let countdown = closingTimeSeconds;
 
@@ -80,18 +81,28 @@ $(document).ready(() => {
 
                     calculateBtn.attr("disabled", "disabled");
                     calculateBtn.text(`Closing in ${countdown--}s`);
-                });
+                }).fail((jqXHR) => {
+                if (jqXHR.status === 404) {
+                    $("#calculatorNotFoundError").slideDown();
+                } else {
+                    console.log(jqXHR);
+                }
+            });
         }
     });
 
     calculator.on('hidden.bs.modal', () => {
         let calculateBtn = $("#calculateBtn");
 
-        $("#calculatorLengthInput").val("");
-        $("#calculatorWidthInput").val("");
-        $("#calculatorHeightInput").val("");
-        $("#calculatorWeightInput").val("");
+        $("#calculator input").each((index, value) => {
+            let input = $(value);
+
+            input.val("");
+            input.removeClass("is-invalid")
+        });
         $("#resultModal").slideUp(0);
+        $("#calculatorError").slideUp(0);
+        $("#calculatorNotFoundError").slideUp(0);
         calculateBtn.removeAttr("disabled");
         calculateBtn.text("Calculate");
         clearInterval(interval);
