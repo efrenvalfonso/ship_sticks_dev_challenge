@@ -33,20 +33,16 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col">
                 <nav class="navbar navbar-expand-md navbar-dark">
                     <a class="navbar-brand" href="/">
                         <img alt="Nav Logo" src="images/ShipSticks_logo_drkbg.png">
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                 </nav>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 main-title">
+            <div class="col main-title">
                 <h1>Shipping Package Calculator</h1>
                 <div id="result" style="display: none">
                     <p class="text-center">
@@ -59,47 +55,49 @@
             </div>
         </div>
     </div>
-
 </header>
 
-<section class="header-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <div class="link-to-calculator">
-                    <button id="launchCalculatorBtn" class="btn btn-primary" data-toggle="modal"
-                            data-target="#calculator">
-                        Launch Calculator
-                    </button>
+<main>
+    <section class="header-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
+                <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+                    <div class="link-to-calculator">
+                        <button id="launchCalculatorBtn" class="btn btn-primary" data-toggle="modal"
+                                data-target="#calculator">
+                            Launch Calculator
+                        </button>
+                    </div>
+                </div>
+                <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>About</h3>
+                    <p>
+                        Package calculator is a tool that helps you to find the shipping package that best fits for your
+                        equipment based in length, width, height and weight.
+                    </p>
+                    <p>Follow these steps:</p>
+                    <ul>
+                        <li>Click <b>Launch Calculator</b> button above</li>
+                        <li>Enter your equipment info <b>LxWxH@W</b></li>
+                        <li>Press <b>Calculate</b> nutton in the modal</li>
+                        <li>We will tell you what is the <b>best shipping package</b> that fits your equipment</li>
+                    </ul>
+                    <p>Enjoy it!</p>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
         </div>
-    </div>
-</section>
-
-<section class="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3>About</h3>
-                <p>
-                    Package calculator is a tool that helps you to find the shipping package that best fits for your
-                    equipment based in length, width, height and weight.
-                </p>
-                <p>Follow these steps:</p>
-                <ul>
-                    <li>Click <b>Launch Calculator</b> button above</li>
-                    <li>Enter your equipment info <b>LxWxH@W</b></li>
-                    <li>Press <b>Calculate</b> nutton in the modal</li>
-                    <li>We will tell you what is the <b>best shipping package</b> that fits your equipment</li>
-                </ul>
-                <p>Enjoy it!</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+    <section class="h-90"></section>
+</main>
 
 <footer class="mt-auto">
     <div class="container">
@@ -127,7 +125,7 @@
             <div class="modal-body">
                 <form>
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-6 col-sm-3">
                             <label class="sr-only" for="calculatorLengthInput">Length</label>
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" id="calculatorLengthInput" placeholder="L">
@@ -136,8 +134,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="divider">&times;</div>
-                        <div class="col">
+                        <!--<div class="divider">&times;</div>-->
+                        <div class="col-6 col-sm-3">
                             <label class="sr-only" for="calculatorWidthInput">Width</label>
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" id="calculatorWidthInput" placeholder="W">
@@ -146,8 +144,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="divider">&times;</div>
-                        <div class="col">
+                        <!--<div class="divider">&times;</div>-->
+                        <div class="col-6 col-sm-3">
                             <label class="sr-only" for="calculatorHeightInput">Height</label>
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" id="calculatorHeightInput" placeholder="H">
@@ -156,8 +154,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="divider">@</div>
-                        <div class="col">
+                        <!--<div class="divider">@</div>-->
+                        <div class="col-6 col-sm-3">
                             <label class="sr-only" for="calculatorWeightInput">Weight</label>
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" id="calculatorWeightInput" placeholder="W">
@@ -167,7 +165,8 @@
                             </div>
                         </div>
                     </div>
-                    <small class="text-danger" id="calculatorError" style="display: none">* All fields must be numbers and greater than zero</small>
+                    <small class="text-danger" id="calculatorError" style="display: none">* All fields must be numbers
+                        and greater than zero</small>
                 </form>
                 <div id="resultModal" style="display: none">
                     <hr/>

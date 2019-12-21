@@ -9,6 +9,11 @@
   src: url("../fonts/Proxima Nova Bold.otf") format("opentype");
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   font-family: 'proxima-nova', sans-serif;
 }
@@ -22,9 +27,9 @@ footer {
   background-color: #252525;
   padding: 18px;
   color: #b0b0b0;
-  width: 100%;
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 h1, h2, h3 {
@@ -96,6 +101,10 @@ h1 {
   }
 }
 
+.h-90 {
+  height: 90px;
+}
+
 .header-footer {
   padding: 30px 0;
   background-color: #f5f5f5;
@@ -107,7 +116,8 @@ h1 {
     position: absolute;
     background-color: #252525;
     border-radius: 4px;
-    width: 100%;
+    left: 0;
+    right: 0;
     top: -90px;
     padding: 20px;
 
@@ -145,4 +155,10 @@ h1 {
 
 #result {
   margin-top: 25px;
+}
+
+@media (max-width: 575px) {
+  .main-title {
+    height: 300px;
+  }
 }
