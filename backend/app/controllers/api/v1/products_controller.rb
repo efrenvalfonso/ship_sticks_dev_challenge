@@ -11,20 +11,21 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def find_best_fit
-    params[:length] ||= 0
-    params[:width] ||= 0
-    params[:height] ||= 0
-    params[:weight] ||= 0
+    # if param cannot be converted to float it returns 0
+    params[:length] = params[:length].to_f
+    params[:width] = params[:width].to_f
+    params[:height] = params[:height].to_f
+    params[:weight] = params[:weight].to_f
 
     min_diff_product = Product.includes(:product_type).collection.
         aggregate([
                       {
                           '$match': {
                               '$and': [
-                                  {length: {'$gte': params[:length].to_i}},
-                                  {width: {'$gte': params[:width].to_i}},
-                                  {height: {'$gte': params[:height].to_i}},
-                                  {weight: {'$gte': params[:weight].to_i}}
+                                  {length: {'$gte': params[:length]}},
+                                  {width: {'$gte': params[:width]}},
+                                  {height: {'$gte': params[:height]}},
+                                  {weight: {'$gte': params[:weight]}}
                               ]
                           }
                       },
@@ -32,10 +33,10 @@ class Api::V1::ProductsController < ApplicationController
                           '$project': {
                               diff: {
                                   '$add': [
-                                      {'$subtract': ['$length', params[:length].to_i]},
-                                      {'$subtract': ['$width', params[:width].to_i]},
-                                      {'$subtract': ['$height', params[:height].to_i]},
-                                      {'$subtract': ['$weight', params[:weight].to_i]}
+                                      {'$subtract': ['$length', params[:length]]},
+                                      {'$subtract': ['$width', params[:width]]},
+                                      {'$subtract': ['$height', params[:height]]},
+                                      {'$subtract': ['$weight', params[:weight]]}
                                   ]
                               }
                           }
