@@ -15,7 +15,10 @@ header {
 footer {
   background-color: #252525;
   padding: 18px;
-  color: #b0b0b0; }
+  color: #b0b0b0;
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
 
 h1, h2, h3 {
   line-height: 1.1;
@@ -32,12 +35,26 @@ h1 {
     text-align: center;
     margin-bottom: 20px; }
 
-.btn.btn-primary {
-  background-color: #5fd063 !important;
-  border-color: #5fd063 !important;
+.btn {
   border-radius: 4px;
-  text-transform: none !important;
-  box-shadow: 0 3px 0 0 #4fab55; }
+  text-transform: none !important; }
+  .btn.btn-primary {
+    background-color: #5fd063 !important;
+    border-color: #5fd063 !important;
+    box-shadow: 0 3px 0 0 #4fab55; }
+    .btn.btn-primary:hover:not(:disabled) {
+      background-color: #4fab55 !important;
+      border-color: #4fab55 !important; }
+  .btn.btn-secondary {
+    box-shadow: 0 3px 0 0 #5a6268; }
+
+#calculateBtn {
+  width: 126px; }
+
+#calculator .divider {
+  margin-top: 5px; }
+#calculator .form-control {
+  text-align: center !important; }
 
 .clear {
   clear: both; }
@@ -60,16 +77,30 @@ h1 {
     background-color: #252525;
     border-radius: 4px;
     width: 100%;
-    top: -100px;
-    padding: 30px; }
+    top: -90px;
+    padding: 20px; }
     .header-footer .link-to-calculator .btn {
-      font-size: 25px; }
+      font-size: 22px;
+      padding: 12px 40px 10px 40px; }
 
 .main-title {
   text-align: center;
-  height: 200px; }
+  height: 250px; }
+  .main-title hr {
+    border-color: #ffffff; }
 
 .navbar-brand img {
   max-height: 45px; }
+
+#productName {
+  color: #5fd063; }
+
+#productName,
+#productNameModal {
+  margin-top: 10px !important;
+  font-weight: bold; }
+
+#result {
+  margin-top: 25px; }
 
 /*# sourceMappingURL=style.css.map */

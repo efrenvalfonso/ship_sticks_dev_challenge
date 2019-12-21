@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Fixed top navbar example · Bootstrap</title>
+    <title>Ship Sticks | Shipping Package Calculator</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
@@ -27,6 +27,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet"/>
+    <script src="js/script.js" type="text/javascript"></script>
 </head>
 <body>
 <header>
@@ -46,7 +47,15 @@
         </div>
         <div class="row">
             <div class="col-md-12 main-title">
-                <h1>Package Calculator</h1>
+                <h1>Shipping Package Calculator</h1>
+                <div id="result" style="display: none">
+                    <p class="text-center">
+                        Use this for
+                        <span id="length"></span>"&times;<span id="width"></span>"&times;<span
+                            id="height"></span>"@<span id="weight"></span>lbs
+                    </p>
+                    <h3 class="text-center" id="productName"></h3>
+                </div>
             </div>
         </div>
     </div>
@@ -59,10 +68,10 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <div class="link-to-calculator">
-                    <a class="btn btn-primary"
-                       href="#">
+                    <button id="launchCalculatorBtn" class="btn btn-primary" data-toggle="modal"
+                            data-target="#calculator">
                         Launch Calculator
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="col-sm-2"></div>
@@ -92,14 +101,85 @@
     </div>
 </section>
 
-<footer>
+<footer class="mt-auto">
     <div class="container">
         <a class="footer-brand" href="/">
             <img alt="Nav Logo" src="images/text-logo-dark-bg.png">
         </a>
-        <p class="copyright"><b><small>Copyright © <script>document.write(new Date().getFullYear())</script> Ship Sticks. All Rights Reserved.</small></b></p>
+        <p class="copyright"><b><small>Copyright ©
+            <script>document.write(new Date().getFullYear())</script>
+            Ship Sticks. All Rights Reserved.</small></b></p>
         <div class="clear"></div>
     </div>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="calculator" data-backdrop="static" tabindex="-1" role="dialog"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Calculator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <label class="sr-only" for="calculatorLengthInput">Length</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="calculatorLengthInput" placeholder="L">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">"</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider">&times;</div>
+                        <div class="col">
+                            <label class="sr-only" for="calculatorWidthInput">Width</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="calculatorWidthInput" placeholder="W">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">"</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider">&times;</div>
+                        <div class="col">
+                            <label class="sr-only" for="calculatorHeightInput">Height</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="calculatorHeightInput" placeholder="H">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">"</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider">@</div>
+                        <div class="col">
+                            <label class="sr-only" for="calculatorWeightInput">Weight</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="calculatorWeightInput" placeholder="W">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">lbs</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="resultModal" style="display: none">
+                    <hr/>
+                    <p class="text-center">Use this</p>
+                    <h3 class="text-center" id="productNameModal"></h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="calculateBtn">Calculate</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
