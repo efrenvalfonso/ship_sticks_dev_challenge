@@ -44,7 +44,13 @@ module Api
         def show;
         end
 
-        api :GET, '/products/find-best-fit', 'Get the product that best fits for given dimensions and weight'
+        api :GET,
+            '/products/find-best-fit',
+            "Get the product that best fits for the selected dimensions and weight. It gets the product with
+dimensions and weight greater than params and with the minimum sum of differences: min(length - params[:length] +
+width - params[:width] + height - params[:height] + weight - params[:weight]). If params have the exact dimensions and
+weight of a product then the difference is zero and it returns that product, otherwise, it looks for a product with
+the less useless space and the less useless weight."
         param :length, String, desc: 'Length in <i>inches</i>', required: true
         param :width, String, desc: 'Width in <i>inches</i>', required: true
         param :height, String, desc: 'Height in <i>inches</i>', required: true

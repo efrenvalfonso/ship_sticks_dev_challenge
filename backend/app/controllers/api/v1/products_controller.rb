@@ -10,6 +10,18 @@ class Api::V1::ProductsController < ApplicationController
   def show;
   end
 
+  # Get the product that best fits for the selected dimensions and weight based in that with shipping packages,
+  # you can always go bigger, but you can’t go smaller (i.e. if an item is 5"x5"x5", you will need the 6"x5"x6" package,
+  # not the 4"x5"x5" package). This is also the case for weight.
+  #
+  # Heuristic finds the product with dimensions and weight greater than params and with the minimum sum of differences:
+  #
+  #   min(length - params[:length] + width - params[:width] + height - params[:height] + weight - params[:weight])
+  #
+  # If params have the exact dimensions and weight of a product then the difference is zero and it returns that
+  # product, otherwise, it looks for a product with the less useless space and the less useless weight.
+  #
+  # All the calculations were delegated to database engine instead the api server.
   def find_best_fit
     # if param cannot be converted to float it returns 0
     params[:length] = params[:length].to_f
@@ -17,9 +29,9 @@ class Api::V1::ProductsController < ApplicationController
     params[:height] = params[:height].to_f
     params[:weight] = params[:weight].to_f
 
-    min_diff_product = Product.includes(:product_type).collection.
-        aggregate([
+    min_diff_product = Product.collection.aggregate([
                       {
+                          # find products with dimensions and weight greater than given in params
                           '$match': {
                               '$and': [
                                   {length: {'$gte': params[:length]}},
@@ -30,6 +42,7 @@ class Api::V1::ProductsController < ApplicationController
                           }
                       },
                       {
+                          # map products to a field with the sum of differences
                           '$project': {
                               diff: {
                                   '$add': [
@@ -42,11 +55,13 @@ class Api::V1::ProductsController < ApplicationController
                           }
                       },
                       {
+                          # sort ascending by differences
                           '$sort': {
                               'diff': 1
                           }
                       },
                       {
+                          # get the first result, the minimum difference
                           '$limit': 1
                       }
                   ]).first
